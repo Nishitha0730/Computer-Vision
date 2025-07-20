@@ -3,9 +3,9 @@ from Scaling import nearest_neighbor_scaling
 
 def main():
     input_path = "apple.jpeg"         # Path to the input image
-    output_path = "nearest neighbor scaled_output.jpeg"
-    new_width = 300
-    new_height = 300
+    output_path = "nearest neighbor scaled_output_2.jpeg"
+    new_width = 789
+    new_height = 573
 
     # Load the image
     source = Image.open(input_path)
