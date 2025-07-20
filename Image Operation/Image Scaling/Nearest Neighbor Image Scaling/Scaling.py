@@ -1,7 +1,7 @@
 from PIL import Image
 
 # https://courses.cs.vt.edu/~masc1044/L17-Rotation/ScalingNN.html
-# https://theailearner.com/tag/image-interpolation-opencv-python/
+# https://theailearner.com/2018/12/29/image-processing-nearest-neighbour-interpolation/
 
 def nearest_neighbor_scaling(source_img, new_width, new_height):
     """
