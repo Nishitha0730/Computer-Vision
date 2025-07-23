@@ -1,4 +1,4 @@
-import cv2
+import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -14,13 +14,7 @@ def gamma_correction(image, gamma):
     Returns:
     - Corrected image.
     """
-    # Normalize the image to [0, 1]
-    normalized_image = image / 255.0
+    t = np.array([(i / 255.0) ** (gamma) * 255 for i in np.arange(0, 256)]).astype(np.uint8)
+    g = cv.LUT(image, t)
 
-    # Apply gamma correction
-    corrected_image = np.power(normalized_image, gamma)
-
-    # Scale back to [0, 255]
-    corrected_image = np.uint8(corrected_image * 255)
-
-    return corrected_image
+    return g
