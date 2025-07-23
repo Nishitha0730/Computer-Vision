@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 
 img = cv.imread("Arthur.jpg")  # Always read images in BGR format
 
+t = np.arange(255,-1,-1, dtype=np.uint8)
+new_img = t[img]
 
 fig, ax = plt.subplots(figsize=(12, 8))
-ax.imshow(cv.cvtColor(img, cv.COLOR_BGR2RGB))
-ax.set_title("Original Image")
+ax.imshow(cv.cvtColor(new_img, cv.COLOR_BGR2RGB))
+ax.set_title("Negative Transformed Image")
 plt.show()
