@@ -1,6 +1,7 @@
 from PIL import Image
 from Histogram_Equalization import histogram_equalization
 
+#  Use Only for Gray Scale images
 
 def main():
     source = Image.open("Apple_GRAY.jpg")  # Load the grayscale image
