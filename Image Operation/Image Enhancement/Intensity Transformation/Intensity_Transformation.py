@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 
 img = cv.imread("Arthur.jpg")  # Always read images in BGR format
 
+print(img.shape)
+
 t = np.arange(255,-1,-1, dtype=np.uint8)
 new_img = t[img]
 
