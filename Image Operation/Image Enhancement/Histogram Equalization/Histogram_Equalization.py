@@ -2,32 +2,23 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+from PIL import Image
+import numpy as np
+
+
 
 def histogram_equalization(image):
-    """
-    Perform histogram equalization on a grayscale image.
+    # Convert PIL Image to NumPy array
+    img_array = np.array(image)
 
-    Parameters:
-        image (numpy.ndarray): Input grayscale image.
+    # Compute histogram
+    hist, bins = np.histogram(img_array.flatten(), 256, [0, 256])
 
-    Returns:
-        numpy.ndarray: Histogram equalized image.
-    """
-    # Calculate histogram
-    hist, bins = np.histogram(image.flatten(), 256, [0, 256])
-
-    # Calculate cumulative distribution function (CDF)
+    # Rest of your equalization code...
     cdf = hist.cumsum()
-    # cdf_normalized = cdf * hist.max() / cdf.max()
-    #
-    # # Mask all pixels with zero CDF
-    # cdf_m = np.ma.masked_equal(cdf, 0)
-
-    # Normalize the CDF
     cdf_normalized = (cdf - cdf.min()) * 255 / (cdf.max() - cdf.min())
     cdf_normalized = cdf_normalized.astype('uint8')
+    equalized_image = cdf_normalized[img_array]
 
-    # Map the original pixel values in the image to the new pixel values
-    equalized_image = cdf_normalized[image]
-
-    return equalized_image
+    # Convert back to PIL Image if needed
+    return Image.fromarray(equalized_image)
