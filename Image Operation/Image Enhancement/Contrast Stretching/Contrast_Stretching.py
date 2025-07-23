@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-
+from PIL import Image
 
 def contrast_stretching(image):
     img_array = np.array(image)
